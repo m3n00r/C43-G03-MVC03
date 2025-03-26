@@ -10,7 +10,7 @@ using Demo.DLL.Repositories;
 
 namespace Demo.BLL.Services
 {
-    class DepartmentService(IDepartmentRepository _departmentRepository)
+  public  class DepartmentService(IDepartmentRepository _departmentRepository) : IDepartmentService
     {
         //Get All Departments
 
@@ -41,15 +41,15 @@ namespace Demo.BLL.Services
         public int AddDepartment(CreatedDepartementDto departementDto)
         {
             //_departmentRepository.Add(departementDto)
-            var departement= departementDto.ToEntity();
+            var departement = departementDto.ToEntity();
             return _departmentRepository.Add(departement);
 
         }
 
-        public int UpdateDepartment(UpdatedDepartementDto departementDto) 
+        public int UpdateDepartment(UpdatedDepartementDto departementDto)
         {
-       return _departmentRepository.Update(departementDto.ToEntity());
-        
+            return _departmentRepository.Update(departementDto.ToEntity());
+
         }
 
         public bool DeleteDepartment(int id)
@@ -65,6 +65,11 @@ namespace Demo.BLL.Services
                 }
             }
 
+        }
+
+        public int CreateDepartment(CreatedDepartementDto departmentDto)
+        {
+            throw new NotImplementedException();
         }
     }
 }

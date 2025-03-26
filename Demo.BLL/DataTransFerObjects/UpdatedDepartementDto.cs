@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Demo.BLL.DataTransFerObjects
 {
-    internal class UpdatedDepartementDto
+    public class UpdatedDepartementDto
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;

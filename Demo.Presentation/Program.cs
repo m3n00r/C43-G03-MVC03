@@ -1,5 +1,8 @@
+
+using Demo.BLL.Services;
 using Demo.DLL.Data.Contexts;
 using Demo.DLL.Repositories;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace Demo.Presentation
@@ -27,6 +30,10 @@ namespace Demo.Presentation
             });
 
             builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            //session02
+            builder.Services.AddScoped<IDepartmentService, DepartmentService>();
+
+
 
             #endregion
 
