@@ -31,6 +31,7 @@ namespace Demo.Presentation
 
             builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
             //session02
+
             builder.Services.AddScoped<IDepartmentService, DepartmentService>();
 
 
