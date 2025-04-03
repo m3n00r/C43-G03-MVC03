@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Demo.BLL.DataTransFerObjects
+namespace Demo.BLL.DataTransFerObjects.DepartmentDtos
 {
-    internal class UpdatedDepartementDto
+    public class UpdatedDepartementDto
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;

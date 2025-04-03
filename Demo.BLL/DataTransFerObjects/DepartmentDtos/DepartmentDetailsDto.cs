@@ -5,16 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Demo.DLL.Models;
 
-namespace Demo.BLL.DataTransFerObjects
+namespace Demo.BLL.DataTransFerObjects.DepartmentDtos
 {
-    internal class DepartmentDetailsDto
+    public class DepartmentDetailsDto
     {
-        //public DepartmentDetailsDto(Department department)
-        //{
-        //   Id= department.Id;
-        //    Name= department.Name;
-        //    //CreatedOn=DateOnly.FromDateTime(department.CreatedOn);
-        //}
+
         public int Id { get; set; }//pk
         public int CreatedBy { get; set; }//user id
         public DateOnly CreatedOn { get; set; }
@@ -26,5 +21,6 @@ namespace Demo.BLL.DataTransFerObjects
         public string Name { get; set; } = string.Empty;
         public string code { get; set; } = string.Empty;
         public string? Description { get; set; }
+
     }
 }
