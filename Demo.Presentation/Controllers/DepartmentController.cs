@@ -1,5 +1,6 @@
 ﻿using Demo.BLL.DataTransFerObjects;
-using Demo.BLL.Services;
+using Demo.BLL.DataTransFerObjects.DepartmentDtos;
+using Demo.BLL.Services.Interfaces;
 using Demo.Presentation.ViewModels.DepartmentsViewModels;
 using Microsoft.AspNetCore.Mvc;
 

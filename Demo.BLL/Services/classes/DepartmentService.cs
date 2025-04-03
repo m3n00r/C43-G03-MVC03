@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Demo.BLL.DataTransFerObjects;
+using Demo.BLL.DataTransFerObjects.DepartmentDtos;
 using Demo.BLL.Factories;
+using Demo.BLL.Services.Interfaces;
 using Demo.DLL.Models;
-using Demo.DLL.Repositories;
+using Demo.DLL.Repositories.Interfaces;
 
-namespace Demo.BLL.Services
+namespace Demo.BLL.Services.classes
 {
-  public  class DepartmentService(IDepartmentRepository _departmentRepository) : IDepartmentService
+    public class DepartmentService(IDepartmentRepository _departmentRepository) : IDepartmentService
     {
         //Get All Departments
 

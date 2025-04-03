@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Demo.BLL.DataTransFerObjects
+namespace Demo.BLL.DataTransFerObjects.DepartmentDtos
 {
-   public  class CreatedDepartementDto
+    public class CreatedDepartementDto
     {
-        [Required(ErrorMessage ="Name Is Required !!!!")]
+        [Required(ErrorMessage = "Name Is Required !!!!")]
         public string Name { get; set; } = null!;
         [Required]
 
