@@ -1,3 +1,4 @@
+using Demo.BLL.profiles;
 using Demo.BLL.Services.classes;
 using Demo.BLL.Services.Interfaces;
 using Demo.DLL.Data.Contexts;
@@ -34,9 +35,10 @@ namespace Demo.Presentation
 
             builder.Services.AddScoped<IDepartmentService, DepartmentService>();
             builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-
+            builder.Services.AddScoped<IEmployeeRepository,EmployeeRepository>();
             //session03
-
+            builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+            builder.Services.AddAutoMapper(M => M.AddProfile(new MappingProfiles()));
 
             #endregion
 
