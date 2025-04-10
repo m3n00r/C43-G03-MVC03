@@ -42,7 +42,7 @@ namespace Demo.BLL.Factories
                 Name = departmentDto.Name,
                 code = departmentDto.Code,
                 Description = departmentDto.Description,
-                CreatedOn = departmentDto.DateOfCreaction.ToDateTime(new TimeOnly())
+                CreatedOn = departmentDto.DateOfCreation.ToDateTime(new TimeOnly())
 
             };
         }

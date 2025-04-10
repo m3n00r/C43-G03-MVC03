@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Demo.DLL.Models.EmployeeModel;
+﻿using Demo.DLL.Models.EmployeeModel;
 using Demo.DLL.Models.Shared.Enums;
+using System.ComponentModel.DataAnnotations;
 
-namespace Demo.BLL.DataTransFerObjects.EmployeeDtos
+namespace Demo.Presentation.ViewModels
 {
-   public class CreatedEmployeeDto
+    public class EmployeeViewModel
     {
         [Required]
         [MaxLength(50, ErrorMessage = "Max length should be 50 character")]
@@ -33,7 +28,7 @@ namespace Demo.BLL.DataTransFerObjects.EmployeeDtos
         public DateOnly HiringDate { get; set; }
         public Gender Gender { get; set; }
         public EmployeeType EmployeeType { get; set; }
-
+        [Display(Name="Department")]
         public int? DepartmentId { get; set; }
     }
 }

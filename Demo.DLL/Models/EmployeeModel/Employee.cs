@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Demo.DLL.Models.DepartmentModel;
 using Demo.DLL.Models.Shared;
 using Demo.DLL.Models.Shared.Enums;
 
@@ -20,6 +21,8 @@ namespace Demo.DLL.Models.EmployeeModel
         public DateTime HireDate { get; set; }
         public Gender Gender { get; set; }
         public EmployeeType EmployeeType { get; set; }
+        public int? DepartmentId { get; set; }
+        public virtual Department? Department { get; set; }
 
     }
 }
