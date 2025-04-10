@@ -14,7 +14,7 @@ namespace Demo.BLL.DataTransFerObjects.DepartmentDtos
         [Required]
 
         public string Code { get; set; } = null!;
-        public DateOnly DateOfCreaction { get; set; }
+        public DateOnly  DateOfCreation { get; set; }
         public string? Description { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Demo.DLL.Data.Contexts;
@@ -47,6 +48,22 @@ namespace Demo.DLL.Repositories.Classes
         {
             _dbContext.Set<TEntity>().Add(entity);
             return _dbContext.SaveChanges();
+        }
+
+        public IEnumerable<TResult> GetAll<TResult>(Expression<Func<TEntity, TResult>> selector)
+        {
+            return _dbContext.Set<TEntity>()
+           .Where(e => e.IsDeleted != true)
+          .Select(selector)
+          .ToList();
+        }
+
+        public IEnumerable<TEntity> GetAll(Expression<Func<TEntity, bool>> Predicate)
+        {
+            return _dbContext.Set<TEntity>()
+                     .Where(Predicate)
+                     .ToList();
+
         }
     }
 }

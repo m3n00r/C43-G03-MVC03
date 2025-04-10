@@ -13,15 +13,18 @@ namespace Demo.BLL.Services.classes
 {
     public class EmployeeService(IEmployeeRepository _employeeRepository,IMapper _mapper) : IEmployeeService
     {
-        public IEnumerable<EmployeeDto> GetAllEmployees(bool withTracking =false)
+        public IEnumerable<EmployeeDto> GetAllEmployees(string? EmployeeSearchName)
         {
-            var Employees = _employeeRepository.GetAll(withTracking);
+        
+            IEnumerable<Employee> employees;
+            if (string.IsNullOrWhiteSpace(EmployeeSearchName))
+                employees = _employeeRepository.GetAll();
+            else
+                employees = _employeeRepository.GetAll(E => E.Name.ToLower().Contains(EmployeeSearchName.ToLower()));
 
-            var EmployeesDto = _mapper.Map<IEnumerable<Employee>,IEnumerable<EmployeeDto>>(Employees);
+            var EmployeesDto = _mapper.Map<IEnumerable<Employee>, IEnumerable<EmployeeDto>>(employees);
 
             return EmployeesDto;
-           
-
         }
 
         public EmployeeDetailsDto? GetEmployeebyId(int id)
@@ -53,7 +56,14 @@ namespace Demo.BLL.Services.classes
 
         }
 
-      
-      
+        public IEnumerable<EmployeeDto> GetAllEmployees(bool withTracking = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int UpdateEmployee(UpdatedEmployeeDto employeeDto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -4,7 +4,9 @@ using Demo.BLL.Services.Interfaces;
 using Demo.DLL.Data.Contexts;
 using Demo.DLL.Repositories.Classes;
 using Demo.DLL.Repositories.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace Demo.Presentation
 {
@@ -21,14 +23,20 @@ namespace Demo.Presentation
 
             #region Add services to the container
 
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews(options =>
+            {
+                options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+
+
+            });
 
             //builder.Services.AddScoped<ApplicationDbContext>();
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
             {
-
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+                options.UseLazyLoadingProxies();
             });
+            
 
             builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
             //session02

@@ -15,12 +15,14 @@ namespace Demo.BLL.profiles
         {
             CreateMap<Employee, EmployeeDto>()
                 .ForMember(dest => dest.EmpGender, options => options.MapFrom(src => src.Gender))
-                .ForMember(dest => dest.EmpType, options => options.MapFrom(src => src.EmployeeType));
+                .ForMember(dest => dest.EmpType, options => options.MapFrom(src => src.EmployeeType))
+                .ForMember(dest=>dest.Department, Options=> Options.MapFrom(src => src.Department !=null ? src.Department.Name :null));
 
             CreateMap<Employee, EmployeeDetailsDto>()
                 .ForMember(dest => dest.Gender, options => options.MapFrom(src => src.Gender))
                 .ForMember(dest => dest.EmployeeType, options => options.MapFrom(src => src.EmployeeType))
-                .ForMember(dest => dest.HiringDate, options => options.MapFrom(src => DateOnly.FromDateTime(src.HireDate)));
+                .ForMember(dest => dest.HiringDate, options => options.MapFrom(src => DateOnly.FromDateTime(src.HireDate)))
+                                .ForMember(dest => dest.Department, Options => Options.MapFrom(src => src.Department != null ? src.Department.Name : null));;
 
 
             CreateMap<CreatedEmployeeDto, Employee>()

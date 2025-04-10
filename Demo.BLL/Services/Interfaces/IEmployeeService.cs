@@ -9,10 +9,14 @@ namespace Demo.BLL.Services.Interfaces
 {
     public interface IEmployeeService
     {
-        IEnumerable<EmployeeDto> GetAllEmployees(bool withTracking = false);
-        EmployeeDetailsDto? GetEmployeebyId(int id);
-        int CreateEmployee(CreatedEmployeeDto employeeDto );
-        int UpdatedEmployee(UpdatedEmployeeDto employeeDto );
+        IEnumerable<EmployeeDto> GetAllEmployees(string? EmployeeSearchName);
         bool DeleteEmployee(int id);
+
+        EmployeeDetailsDto? GetEmployeebyId(int id);
+
+        int CreateEmployee(CreatedEmployeeDto employeeDto);
+
+        int UpdateEmployee(UpdatedEmployeeDto employeeDto);
+
     }
 }
