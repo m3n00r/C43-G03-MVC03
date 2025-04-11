@@ -50,6 +50,7 @@ namespace Demo.Presentation.Controllers
                         PhoneNumber = employeeViewModel.PhoneNumber,
                         Salary = employeeViewModel.Salary,
                         DepartmentId = employeeViewModel.DepartmentId,
+                        Image= employeeViewModel.Image, 
                     };
                     int Result = _employeeService.CreateEmployee(employeeDto);
                     if (Result > 0)
