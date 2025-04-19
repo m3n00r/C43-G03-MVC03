@@ -54,8 +54,11 @@ namespace Demo.Presentation
             builder.Services.AddScoped<IAttachementServices, AttachementServices>();
 
 
-            builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>(Options =>
+            {
+                Options.User.RequireUniqueEmail = true;
+            }).AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddDefaultTokenProviders();
             #endregion
 
             var app = builder.Build();
@@ -73,8 +76,9 @@ namespace Demo.Presentation
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
+           
 
             app.MapControllerRoute(
                 name: "default",
